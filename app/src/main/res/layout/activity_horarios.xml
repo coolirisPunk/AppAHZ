@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="0dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.punkmkt.formula1.HorariosActivity">
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/top_photo"
+        android:id="@+id/imageView" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/white"
+        >
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TableLayout android:layout_centerHorizontal="true" android:layout_width="fill_parent" android:layout_height="fill_parent" >
+        <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/red_background">
+            <TextView  android:layout_weight="1" android:gravity="center" android:text="VIERNES 24" android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="0.5" android:gravity="center" android:text="AL AIRE"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="0.5" android:gravity="center" android:text="INICIA"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="2" android:gravity="center" android:text="NOTIFICACIÓN"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/grey_background">
+            <TextView android:layout_weight="1" android:gravity="center" android:text="PRÀCTICA 1" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/grey_color_strong"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="8:45 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="9:00 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:id="@+id/notificacion_practica1" android:layout_weight="1" android:src="@drawable/notification_icon" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </TableRow>
+        <TableRow android:paddingBottom="20dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/grey_background">
+            <TextView android:layout_weight="1" android:gravity="center" android:text="PRÀCTICA 2" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/grey_color_strong"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="8:45 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="9:00 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:id="@+id/notificacion_practica2" android:layout_weight="1" android:src="@drawable/notification_icon" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </TableRow>
+        <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/red_background">
+            <TextView  android:layout_weight="1" android:gravity="center" android:text="SÁBADO 25" android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="0.5" android:gravity="center" android:text="AL AIRE"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="0.5" android:gravity="center" android:text="INICIA"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView  android:layout_weight="2" android:gravity="center" android:text="NOTIFICACIÓN"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/grey_background">
+            <TextView android:layout_weight="1" android:gravity="center" android:text="PRÀCTICA 3" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/grey_color_strong"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="8:45 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="9:00 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:id="@+id/notificacion_practica3" android:layout_weight="1" android:src="@drawable/notification_icon" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </TableRow>
+        <TableRow android:paddingBottom="20dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/grey_background">
+            <TextView android:layout_weight="1" android:gravity="center" android:text="CALIFICACIÓN" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/grey_color_strong"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="8:45 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_weight="1" android:gravity="center" android:text="9:00 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:id="@+id/notificacion_calificacion" android:layout_weight="1" android:src="@drawable/notification_icon" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </TableRow>
+            <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/red_background">
+                <TextView  android:layout_weight="1" android:gravity="center" android:text="DOMINGO 26" android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView  android:layout_weight="0.5" android:gravity="center" android:text="AL AIRE"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView  android:layout_weight="0.5" android:gravity="center" android:text="INICIA"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView  android:layout_weight="2" android:gravity="center" android:text="NOTIFICACIÓN"  android:textSize="15sp" android:textColor="@color/white" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow android:paddingBottom="10dp" android:paddingTop="10dp" android:weightSum="4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/grey_background">
+                <TextView android:layout_weight="1" android:gravity="center" android:text="GRAN PREMIO" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/grey_color_strong"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_weight="1" android:gravity="center" android:text="8:45 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_weight="1" android:gravity="center" android:text="9:00 A.M."  android:textSize="15sp" android:textColor="@color/grey_color_low"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <ImageView android:id="@+id/notificacion_premio" android:layout_weight="1" android:src="@drawable/notification_icon" android:layout_width="match_parent" android:layout_height="match_parent" />
+            </TableRow>
+        </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.punkmkt.formula1.ServiciosActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/background_tabs"
+        android:id="@+id/container_menu"
+        android:gravity="center"
+        android:baselineAligned="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+
+        <Button
+            android:id="@+id/servicios_emergencia"
+            android:background="@drawable/death"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:onClick="MostrarServiciosEmergencia"/>
+        <Button
+            android:id="@+id/alimentos"
+            android:background="@drawable/fate"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:onClick="MostrarAlimentos"
+            />
+        <Button
+            android:id="@+id/banos"
+            android:background="@drawable/fate"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:onClick="MostrarBanos"/>
+        <Button
+            android:id="@+id/tiendas"
+            android:background="@drawable/fate"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:onClick="MostrarTiendas"/>
+    </LinearLayout>
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/container_menu"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/grey"
+        android:id="@+id/container_servicio"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/map"
+        >
+        <TextView
+            android:id="@+id/titulo_servicio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_emergencia"
+            android:textColor="@color/background_tabs"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+             />
+        <ScrollView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/descripcion_servicio"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:text="@string/descripcion_emergencia"
+                android:layout_below="@+id/titulo_servicio"
+                />
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

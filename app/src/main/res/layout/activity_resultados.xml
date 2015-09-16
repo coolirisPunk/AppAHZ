@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.punkmkt.formula1.ResultadosActivity"
+    android:id="@+id/container">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_tabs"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:baselineAligned="false"
+        android:id="@+id/containertitle"
+        >
+<TextView
+    android:id="@+id/ranking_general"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:text="@string/ver_ranking_general"/>
+    <ImageButton
+        android:id="@+id/ranking_general_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/white_arrow"/>
+
+    </LinearLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/container_fragment"
+    android:layout_below="@id/containertitle"
+
+>
+
+</RelativeLayout>
+
+
+</RelativeLayout>

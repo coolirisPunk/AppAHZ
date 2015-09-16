@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="parse_application_id">6vib3ykygZ4Ws33c1gOhrpSuAEF7nKWYtijZymtL</string>
+    <string name="parse_client_key">ZJuHuFMu6mYZPP30OkcQxtEjKJ9cpTFVWoq1EBS2</string>
+    <string name="app_name">Autodromo Hermanos Rodriguez</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_course_detail">CourseDetailActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_maps_key">AIzaSyAYCqiwp3mZGjmqrwBuSAaKJdXzyxc4XE8</string>
+    <string name="title_activity_comollegar">ComollegarActivity</string>
+    <string name="title_activity_autodromo">AutodromoActivity</string>
+    <string name="title_activity_ubica_zona">UbicaZonaActivity</string>
+    <string name="localiza_tu_zona">LOCALIZA TU ZONA</string>
+
+
+    <string-array name="zonas_autodromo">
+        <item>GRANDSTANDS: 1, 1-A, 2</item>
+        <item>GRADAS PLATINO: 5, 9, 10, 11</item>
+        <item>GRADAS ORO: 3, 4, 6, 7, 8, 12</item>
+        <item>FORO SOL SUR: 14</item>
+        <item>FORO SOL NORTE: 15</item>
+        <item>ADMINISIÓN GENERAL: 13, 2-A, 2-B, 6-A</item>
+    </string-array>
+    <string name="title_activity_servicios">ServiciosActivity</string>
+
+    <!-- Servicios -->
+    <string name="titulo_alimentos">ALIMENTOS</string>
+    <string name="titulo_banos">BAÑOS</string>
+        <string name="titulo_emergencia">SERVICIOS DE EMERGENCIA</string>
+    <string name="titulo_tienda">TIENDAS</string>
+
+    <string name="descripcion_alimentos">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="descripcion_banos">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	</string>
+    <string name="descripcion_emergencia">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	</string>
+    <string name="descripcion_tienda">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="title_activity_horarios">HorariosActivity</string>
+    <string name="title_activity_resultados">ResultadosActivity</string>
+
+
+
+    <string name="ver_ranking_general">VER RANKING GENERAL</string>
+    <string name="title_activity_ranking_general">RankingGeneralActivity</string>
+    <string name="title_activity_resultados_detalle">ResultadosDetalleActivity</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="background_tabs" type="color">#f33100</item>
+    <!--Zonas-->
+    <item name="grandstands" type="color">#79a925</item>
+    <item name="gradas_platino" type="color">#a64d1d</item>
+    <item name="gradas_oro" type="color">#d0b431</item>
+    <item name="foro_sol_sur" type="color">#92a1f0</item>
+    <item name="foro_sol_norte" type="color">#db881d</item>
+    <item name="admision_general" type="color">#4b6bc6</item>
+    <item name="white" type="color">#FFFFFF</item>
+    <item name="black" type="color">#000000</item>
+    <item name="black_transparent" type="color">#BF000000</item>
+    <item name="grey" type="color">#999999</item>
+    <item name="grey_background" type="color">#eeeeee</item>
+    <item name="red_background" type="color">#f33100</item>
+    <item name="grey_color_strong" type="color">#858585</item>
+    <item name="grey_color_low" type="color">#73737373</item>
+    <item name="green" type="color">#324F17</item>
+
+</resources>
