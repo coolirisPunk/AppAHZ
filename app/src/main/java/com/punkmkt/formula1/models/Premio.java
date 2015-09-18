@@ -8,6 +8,7 @@ public class Premio {
     private Integer id;
     private String name;
     private String bandera;
+    private String imagen_categoria;
 
 
     public String getName() {
@@ -31,5 +32,13 @@ public class Premio {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getImagenCategoria() {
+        return imagen_categoria;
+    }
+
+    public void setImageCategoria(String image) {
+        this.imagen_categoria = image;
     }
 }

@@ -1,4 +1,4 @@
-package com.punkmkt.formula1.fragments;
+package com.punkmkt.formula1.utils;
 
 import android.util.Base64;
 
@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by germanpunk on 14/09/15.
  */
 public class AuthRequest extends StringRequest {
-    AuthRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public AuthRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         super(method, url, listener, errorListener);
     }
 

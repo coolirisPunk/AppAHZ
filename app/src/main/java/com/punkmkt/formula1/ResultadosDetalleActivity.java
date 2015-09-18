@@ -1,17 +1,203 @@
 package com.punkmkt.formula1;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
+import com.punkmkt.formula1.models.Etapa;
+import com.punkmkt.formula1.models.Posicion;
+import com.punkmkt.formula1.utils.AuthRequest;
+import com.punkmkt.formula1.models.Premio;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class ResultadosDetalleActivity extends Activity {
+    private String AHZ_PREMIOS_JSON_API_URL = "http://104.236.3.158/api/premios/";
+    ImageLoader imageLoader = MyVolleySingleton.getInstance().getImageLoader();
+    TextView nombre;
+    NetworkImageView imagen;
+    RelativeLayout MyrLayout;
+    TableLayout tabla_resultados;
+    private ArrayList<Etapa> etapas = new ArrayList<Etapa>();
 
+    private ArrayList<Posicion> posiciones_p1 = new ArrayList<Posicion>();
+    private ArrayList<Posicion> posiciones_p2 = new ArrayList<Posicion>();
+    private ArrayList<Posicion> posiciones_p3 = new ArrayList<Posicion>();
+    private ArrayList<Posicion> posiciones_clasificatoria = new ArrayList<Posicion>();
+    private ArrayList<Posicion> posiciones_carrera = new ArrayList<Posicion>();
+
+
+    Button p1;
+    Button p2;
+    Button p3;
+    Button clasificatoria;
+    Button carrera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados_detalle);
+
+        imagen = (NetworkImageView) findViewById(R.id.bandera_premio);
+        nombre = (TextView) findViewById(R.id.nombre_premio);
+        MyrLayout = (RelativeLayout) findViewById(R.id.container);
+        tabla_resultados = (TableLayout) findViewById(R.id.tabla_resultados);
+        p1 = (Button) findViewById(R.id.p1);
+        p2 = (Button) findViewById(R.id.p2);
+        p3 = (Button) findViewById(R.id.p3);
+        clasificatoria = (Button) findViewById(R.id.clasificacion);
+        carrera = (Button) findViewById(R.id.carrera);
+        Intent intent = getIntent();
+        Premio premio = new Premio();
+        String id = intent.getStringExtra("id");
+        AHZ_PREMIOS_JSON_API_URL = AHZ_PREMIOS_JSON_API_URL + id + "/";
+        premio.setId(Integer.parseInt(id));
+        String nombre_premio = intent.getStringExtra("nombre");
+        premio.setName(nombre_premio);
+        String image = intent.getStringExtra("image");
+        premio.setImage(image);
+        imagen.setImageUrl(premio.getImagen(), imageLoader);
+        nombre.setText(premio.getName());
+
+
+
+        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PREMIOS_JSON_API_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject object = new JSONObject(response);
+                    JSONArray etapa_set = object.getJSONArray("etapa_set");
+
+                    for (int count = 0; count < etapa_set.length(); count++) {
+                        JSONObject anEntry = etapa_set.getJSONObject(count);
+                        Etapa etapa = new Etapa();
+                        etapa.setId(Integer.parseInt(anEntry.optString("id")));
+                        etapa.setNombre(anEntry.optString("nombre"));
+                        etapa.setTipo(anEntry.optString("tipo_etapa"));
+                        Log.d("volley", etapa.getNombre());  //Etapas
+                        etapas.add(etapa);
+                        JSONArray posicion_set = anEntry.getJSONArray("posicion_set");
+                        ArrayList<Posicion> array_posiciones = new ArrayList<Posicion>();
+                        for (int count2 = 0; count2 < posicion_set.length(); count2++) {
+                            JSONObject anSecondEntry = posicion_set.getJSONObject(count2);
+                            //Log.d("volley",anSecondEntry.toString());
+                            Posicion posicion  = new Posicion();
+                            posicion.setId(Integer.parseInt(anSecondEntry.optString("id")));
+                            posicion.setPosicion(Integer.parseInt(anSecondEntry.optString("numero_posicion")));
+                            posicion.setTiempo(anSecondEntry.optString("tiempo"));
+                            Log.d("volley", anSecondEntry.optString("gap"));
+                            Log.d("volley", anSecondEntry.optString("laps"));
+                            if(anSecondEntry.has("gap") && !anSecondEntry.optString("gap").equals("null")){
+                                posicion.setGap(anSecondEntry.optString("gap"));
+                            }
+                            if(anSecondEntry.has("laps") && !anSecondEntry.optString("laps").equals("null")){
+                                posicion.setLaps(anSecondEntry.optString("laps"));
+                            }
+                            if(anSecondEntry.has("q1") && !anSecondEntry.optString("q1").equals("null")){
+                                posicion.setQ1(anSecondEntry.optString("q1"));
+                            }
+                            if(anSecondEntry.has("q2") && !anSecondEntry.optString("q2").equals("null")){
+                                posicion.setQ2(anSecondEntry.optString("q2"));
+                            }
+                            if(anSecondEntry.has("q3") && !anSecondEntry.optString("q3").equals("null")){
+                                posicion.setQ3(anSecondEntry.optString("q3"));
+                            }
+                            if(anSecondEntry.has("puntos") && !anSecondEntry.optString("puntos").equals("null")){
+                                posicion.setPuntos(anSecondEntry.optString("puntos"));
+                            }
+
+
+                            JSONObject anpilot = anSecondEntry.optJSONObject("piloto");
+
+                            posicion.setPiloto_sobrenombre(anpilot.optString("sobrenombre"));
+
+                            JSONObject anEscuderia = anpilot.getJSONObject("escuderia");
+                            posicion.setEscuderia(anEscuderia.optString("equipo_img"));
+
+                            array_posiciones.add(posicion);
+                        }
+                        if(etapa.getNombre().equals("P1")){
+                            posiciones_p1 = array_posiciones;
+                        }
+                        else if(etapa.getNombre().equals("P2")){
+                            posiciones_p2 = array_posiciones;
+                        }
+                        else if(etapa.getNombre().equals("P3")){
+                            posiciones_p2 = array_posiciones;
+                        }
+                        else if(etapa.getNombre().equals("Q")){
+                            posiciones_clasificatoria = array_posiciones;
+                        }
+                        else if(etapa.getNombre().equals("R")){
+                            posiciones_carrera = array_posiciones;
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("volley", "Error during request");
+                error.printStackTrace();
+            }
+        });
+        MyVolleySingleton.getInstance().addToRequestQueue(request);
+
+        p1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tabla_resultados.removeAllViews();
+                TableRow row = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.title_practica1, null);
+                tabla_resultados.addView(row);
+                for(int count=0; count<posiciones_p1.size();count++){
+                    Posicion posicion = posiciones_p1.get(count);
+                    TableRow row_pos = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.row_practica, null);
+                    ((TextView)row_pos.findViewById(R.id.pos)).setText(Integer.toString(posicion.getPosicion()));
+                    ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
+                    ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
+                    ((TextView)row_pos.findViewById(R.id.tiempo)).setText(posicion.getTiempo());
+                    ((TextView)row_pos.findViewById(R.id.gap)).setText(posicion.getGap());
+                    ((TextView)row_pos.findViewById(R.id.laps)).setText(posicion.getLaps());
+                    tabla_resultados.addView(row_pos);
+
+                }
+                //int position = index_of_arraylist("P1");
+                //Etapa etapa = etapas.get(position);
+               // if(etapa.getNombre().equals("P1")){
+                //    Log.d("volley",posiciones_p1.toString());
+               // }
+                //  else if(etapa.getNombre().equals("P2")){
+                // }
+                //else if(etapa.getNombre().equals("P3")){
+                // }
+                //else if(etapa.getNombre().equals("Q")){
+                // }
+                //  else if(etapa.getNombre().equals("R")){
+                    //    }
+            }
+        });
     }
 
     @Override
@@ -34,5 +220,17 @@ public class ResultadosDetalleActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+public int index_of_arraylist(String etapa){
+        int iterator = 0;
+        boolean flag = false;
+        while (flag) {
+            if(etapas.get(iterator).getNombre() == etapa){
+                flag = true;
+            }
+            iterator++;
+        }
+        return iterator;
     }
 }

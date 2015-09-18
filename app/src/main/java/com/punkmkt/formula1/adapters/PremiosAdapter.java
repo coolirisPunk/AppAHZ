@@ -78,12 +78,10 @@ public class PremiosAdapter extends RecyclerView.Adapter<PremiosAdapter.PremioVi
             public void onPotato(View caller, int i) {
                 Premio premio  = items.get(i);
 
-                Log.d("recyclerview", premio.getName());
-                Log.d("recyclerview", premio.getImagen());
-                Log.d("recyclerview", Integer.toString(premio.getId()));
+
 
                 Intent Idetail = new Intent (viewGroup.getContext(), ResultadosDetalleActivity.class);
-                Idetail.putExtra("id", premio.getId());
+                Idetail.putExtra("id", Integer.toString(premio.getId()));
                 Idetail.putExtra("nombre", premio.getName());
                 Idetail.putExtra("image", premio.getImagen());
                 viewGroup.getContext().startActivity(Idetail);
@@ -91,11 +89,9 @@ public class PremiosAdapter extends RecyclerView.Adapter<PremiosAdapter.PremioVi
             };
             public void onTomato(NetworkImageView callerImage, int i) {
                 Premio premio  = items.get(i);
-                Log.d("recyclerview",premio.getName());
-                Log.d("recyclerview",premio.getImagen());
-                Log.d("recyclerview",Integer.toString(premio.getId()));
+
                 Intent Idetail = new Intent (viewGroup.getContext(), ResultadosDetalleActivity.class);
-                Idetail.putExtra("id", premio.getId());
+                Idetail.putExtra("id", Integer.toString(premio.getId()));
                 Idetail.putExtra("nombre", premio.getName());
                 Idetail.putExtra("image", premio.getImagen());
                 viewGroup.getContext().startActivity(Idetail);
@@ -108,11 +104,8 @@ public class PremiosAdapter extends RecyclerView.Adapter<PremiosAdapter.PremioVi
 
     @Override
     public void onBindViewHolder(PremioViewHolder viewHolder, int i) {
-        //Log.d("recyclerview",Integer.toString(i));
-        //viewHolder.imagen.setImageResource(items.get(i).getImagen())
-        viewHolder.imagen.setImageUrl(items.get(i).getImagen(), imageLoader);
+        viewHolder.imagen.setImageUrl(items.get(i).getImagenCategoria(), imageLoader);
         viewHolder.nombre.setText(items.get(i).getName());
-        //viewHolder.visitas.setText("Visitas:"+String.valueOf(items.get(i).getVisitas()));
     }
 
 

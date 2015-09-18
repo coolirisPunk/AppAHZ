@@ -16,16 +16,12 @@ import android.view.ViewGroup;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.punkmkt.formula1.MyVolleySingleton;
 import com.punkmkt.formula1.R;
-import com.punkmkt.formula1.adapters.AnimeAdapter;
 import com.punkmkt.formula1.adapters.PremiosAdapter;
-import com.punkmkt.formula1.models.Anime;
-import com.punkmkt.formula1.models.Course;
 import com.punkmkt.formula1.models.Premio;
-import com.punkmkt.formula1.utils.ReadLocalJSON;
+import com.punkmkt.formula1.utils.AuthRequest;
 
 
 import org.json.JSONArray;
@@ -33,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -69,6 +64,7 @@ public class PremiosFragment extends Fragment {
                         premio.setId(Integer.parseInt(anEntry.optString("id")));
                         premio.setName(anEntry.optString("nombre"));
                         premio.setImage(anEntry.optString("bandera"));
+                        premio.setImageCategoria(anEntry.optString("imagen_categoria"));
                         premios.add(premio);
                     }
                     adapter.notifyDataSetChanged();
