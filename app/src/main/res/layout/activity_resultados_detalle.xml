@@ -85,7 +85,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick=""/>
+            />
         <Button
             android:id="@+id/p3"
             android:layout_width="40dp"
@@ -101,7 +101,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick=""/>
+            />
         <Button
             android:id="@+id/clasificacion"
             android:layout_width="40dp"
@@ -117,7 +117,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick=""/>
+            />
         <Button
             android:id="@+id/carrera"
             android:layout_width="40dp"
@@ -133,7 +133,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick=""/>
+            />
     </LinearLayout>
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"

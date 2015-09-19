@@ -104,9 +104,9 @@ public class ResultadosDetalleActivity extends Activity {
                             Posicion posicion  = new Posicion();
                             posicion.setId(Integer.parseInt(anSecondEntry.optString("id")));
                             posicion.setPosicion(Integer.parseInt(anSecondEntry.optString("numero_posicion")));
-                            posicion.setTiempo(anSecondEntry.optString("tiempo"));
-                            Log.d("volley", anSecondEntry.optString("gap"));
-                            Log.d("volley", anSecondEntry.optString("laps"));
+                            if(anSecondEntry.has("tiempo") && !anSecondEntry.optString("tiempo").equals("null")){
+                                posicion.setTiempo(anSecondEntry.optString("tiempo"));
+                            }
                             if(anSecondEntry.has("gap") && !anSecondEntry.optString("gap").equals("null")){
                                 posicion.setGap(anSecondEntry.optString("gap"));
                             }
@@ -125,15 +125,10 @@ public class ResultadosDetalleActivity extends Activity {
                             if(anSecondEntry.has("puntos") && !anSecondEntry.optString("puntos").equals("null")){
                                 posicion.setPuntos(anSecondEntry.optString("puntos"));
                             }
-
-
                             JSONObject anpilot = anSecondEntry.optJSONObject("piloto");
-
                             posicion.setPiloto_sobrenombre(anpilot.optString("sobrenombre"));
-
                             JSONObject anEscuderia = anpilot.getJSONObject("escuderia");
                             posicion.setEscuderia(anEscuderia.optString("equipo_img"));
-
                             array_posiciones.add(posicion);
                         }
                         if(etapa.getNombre().equals("P1")){
@@ -153,6 +148,8 @@ public class ResultadosDetalleActivity extends Activity {
                         }
                     }
 
+                    iniciarpractica("practica1");
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -168,34 +165,28 @@ public class ResultadosDetalleActivity extends Activity {
 
         p1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                tabla_resultados.removeAllViews();
-                TableRow row = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.title_practica1, null);
-                tabla_resultados.addView(row);
-                for(int count=0; count<posiciones_p1.size();count++){
-                    Posicion posicion = posiciones_p1.get(count);
-                    TableRow row_pos = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.row_practica, null);
-                    ((TextView)row_pos.findViewById(R.id.pos)).setText(Integer.toString(posicion.getPosicion()));
-                    ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
-                    ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
-                    ((TextView)row_pos.findViewById(R.id.tiempo)).setText(posicion.getTiempo());
-                    ((TextView)row_pos.findViewById(R.id.gap)).setText(posicion.getGap());
-                    ((TextView)row_pos.findViewById(R.id.laps)).setText(posicion.getLaps());
-                    tabla_resultados.addView(row_pos);
+                iniciarpractica("practica1");
 
-                }
-                //int position = index_of_arraylist("P1");
-                //Etapa etapa = etapas.get(position);
-               // if(etapa.getNombre().equals("P1")){
-                //    Log.d("volley",posiciones_p1.toString());
-               // }
-                //  else if(etapa.getNombre().equals("P2")){
-                // }
-                //else if(etapa.getNombre().equals("P3")){
-                // }
-                //else if(etapa.getNombre().equals("Q")){
-                // }
-                //  else if(etapa.getNombre().equals("R")){
-                    //    }
+            }
+        });
+        p2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                iniciarpractica("practica2");
+            }
+        });
+        p3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                iniciarpractica("practica3");
+            }
+        });
+        clasificatoria.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                iniciarclasificacion();
+            }
+        });
+        carrera.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                iniciarcarrera();
             }
         });
     }
@@ -232,5 +223,68 @@ public int index_of_arraylist(String etapa){
             iterator++;
         }
         return iterator;
+    }
+    public void iniciarpractica(String practica){
+        ArrayList<Posicion> copia = new ArrayList<Posicion>();
+        if (practica.equals("practica1")){
+            copia = posiciones_p1;
+        }
+        else if (practica.equals("practica2")){
+            copia = posiciones_p2;
+        }
+        else if (practica.equals("practica3")){
+            copia = posiciones_p3;
+        }
+        tabla_resultados.removeAllViews();
+        TableRow row = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.title_practica1, null);
+        tabla_resultados.addView(row);
+        for(int count=0; count<copia.size();count++){
+            Posicion posicion = copia.get(count);
+            TableRow row_pos = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.row_practica, null);
+            ((TextView)row_pos.findViewById(R.id.pos)).setText(Integer.toString(posicion.getPosicion()));
+            ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
+            ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
+            ((TextView)row_pos.findViewById(R.id.tiempo)).setText(posicion.getTiempo());
+            ((TextView)row_pos.findViewById(R.id.gap)).setText(posicion.getGap());
+            ((TextView)row_pos.findViewById(R.id.laps)).setText(posicion.getLaps());
+            tabla_resultados.addView(row_pos);
+        }
+
+    }
+    public void iniciarclasificacion(){
+        ArrayList<Posicion> copia = new ArrayList<Posicion>();
+        copia = posiciones_clasificatoria;
+        tabla_resultados.removeAllViews();
+        TableRow row = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.title_clasificacion, null);
+        tabla_resultados.addView(row);
+        for(int count=0; count<copia.size();count++){
+            Posicion posicion = copia.get(count);
+            TableRow row_pos = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.row_clasificacion, null);
+            ((TextView)row_pos.findViewById(R.id.pos)).setText(Integer.toString(posicion.getPosicion()));
+            ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
+            ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
+            ((TextView)row_pos.findViewById(R.id.textview_q1)).setText(posicion.getQ1());
+            ((TextView)row_pos.findViewById(R.id.textview_q2)).setText(posicion.getQ2());
+            ((TextView)row_pos.findViewById(R.id.textview_q3)).setText(posicion.getQ3());
+            ((TextView)row_pos.findViewById(R.id.textview_laps)).setText(posicion.getLaps());
+            tabla_resultados.addView(row_pos);
+        }
+    }
+    public void iniciarcarrera(){
+        ArrayList<Posicion> copia = new ArrayList<Posicion>();
+        copia = posiciones_carrera;
+        tabla_resultados.removeAllViews();
+        TableRow row = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.title_carrera, null);
+        tabla_resultados.addView(row);
+        for(int count=0; count<copia.size();count++){
+            Posicion posicion = copia.get(count);
+            TableRow row_pos = (TableRow) LayoutInflater.from(ResultadosDetalleActivity.this).inflate(R.layout.row_carrera, null);
+            ((TextView)row_pos.findViewById(R.id.pos)).setText(Integer.toString(posicion.getPosicion()));
+            ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
+            ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
+            ((TextView)row_pos.findViewById(R.id.tiempo)).setText(posicion.getTiempo());
+            ((TextView)row_pos.findViewById(R.id.puntos)).setText(posicion.getPuntos());
+            tabla_resultados.addView(row_pos);
+        }
     }
 }
