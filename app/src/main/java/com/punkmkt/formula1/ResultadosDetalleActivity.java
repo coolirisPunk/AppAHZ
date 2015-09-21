@@ -52,6 +52,7 @@ public class ResultadosDetalleActivity extends Activity {
     Button p3;
     Button clasificatoria;
     Button carrera;
+    StringRequest request;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +81,7 @@ public class ResultadosDetalleActivity extends Activity {
 
 
 
-        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PREMIOS_JSON_API_URL, new Response.Listener<String>() {
+        request = new AuthRequest(Request.Method.GET, AHZ_PREMIOS_JSON_API_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -286,5 +287,12 @@ public int index_of_arraylist(String etapa){
             ((TextView)row_pos.findViewById(R.id.puntos)).setText(posicion.getPuntos());
             tabla_resultados.addView(row_pos);
         }
+
+
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        request.cancel();
     }
 }
