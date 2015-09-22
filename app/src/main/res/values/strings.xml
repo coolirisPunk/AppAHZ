@@ -65,4 +65,10 @@
     <string name="title_activity_pilotos">PilotosActivity</string>
     <string name="title_activity_pilotos_detalle">PilotosDetalleActivity</string>
 
+    <string name="piloto_nombre">NOMBRE</string>
+    <string name="piloto_numero">NÚMERO</string>
+    <string name="piloto_nacionalidad">NACIONALIDAD</string>
+    <string name="piloto_fecha_nacimiento">FECHA DE NACIMIENTO</string>
+    <string name="piloto_lugar_nacimiento">LUGAR DE NACIMIENTO</string>
+    <string name="piloto_campeonatos">CAMPEONATOS</string>
 </resources>

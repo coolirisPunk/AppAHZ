@@ -1,5 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -7,8 +8,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/white"
     tools:context="com.punkmkt.formula1.PilotosDetalleActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/container_top"
+        >
     <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/netork_imageView"
+        android:id="@+id/imagen_principal"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
         android:background="@color/white"
@@ -16,27 +23,205 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_gravity="top" />
-    <HorizontalScrollView
-        android:id="@+id/hsv"
+    <android.support.v7.widget.RecyclerView
+        android:scrollbars="horizontal"
+        android:background="@color/white"
+        android:id="@+id/my_recycler_view"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:fillViewport="true"
-        android:measureAllChildren="false"
-        android:scrollbars="none" >
-    <LinearLayout
-        android:layout_alignParentTop="true"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/container_thumbnails"
-        android:gravity="center"
-        android:baselineAligned="false"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@id/netork_imageView"
-
-        >
+        android:layout_height="100dp"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_below="@+id/netork_imageView"
+        />
     </LinearLayout>
-    </HorizontalScrollView>
-</LinearLayout>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_top"
+        android:layout_alignParentLeft="true">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:background="@color/grey_color_low"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/my_custom_background">
+        <TextView
+            android:id="@+id/piloto_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_tabs"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/piloto_nombre"
+            android:fontFamily="sans-serif-condensed"
+            />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_tabs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/piloto_numero"
+                android:layout_below="@+id/piloto_nombre"
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_tabs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/piloto_nacionalidad"
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_tabs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/piloto_fecha_nacimiento"
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_tabs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/piloto_lugar_nacimiento"
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_tabs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/piloto_campeonatos"
+                android:fontFamily="sans-serif-condensed"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/descripcion_nombre_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:id="@+id/descripcion_numero_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:id="@+id/descripcion_nacionalidad_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:id="@+id/descripcion_fecha_nacimiento_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:id="@+id/descripcion_lugar_nacimiento_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:fontFamily="sans-serif-condensed"/>
+            <TextView
+                android:id="@+id/descripcion_campeonatos_piloto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:fontFamily="sans-serif-condensed"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
