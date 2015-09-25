@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/background_tabs"
         android:orientation="horizontal"
-        android:paddingTop="10dp"
+        android:paddingTop="@dimen/activity_horizontal_margin"
         android:paddingBottom="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"

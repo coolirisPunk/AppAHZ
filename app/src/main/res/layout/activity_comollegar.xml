@@ -21,7 +21,7 @@
 
         <Button
             android:id="@+id/como_llegar"
-            android:background="@drawable/death"
+            android:background="@drawable/mapaicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -32,7 +32,7 @@
             android:onClick="MostrarMarcadorAhd"/>
         <Button
             android:id="@+id/recoleccion"
-            android:background="@drawable/fate"
+            android:background="@drawable/ticketbus"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -43,7 +43,7 @@
             />
         <Button
             android:id="@+id/taxis"
-            android:background="@drawable/fate"
+            android:background="@drawable/taxiicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -53,7 +53,7 @@
             android:onClick="MostrarMarcadoresTaxis"/>
         <Button
             android:id="@+id/estaciones_metro"
-            android:background="@drawable/fate"
+            android:background="@drawable/trainicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"

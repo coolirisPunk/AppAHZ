@@ -19,7 +19,7 @@
 
         <Button
             android:id="@+id/salidas"
-            android:background="@drawable/death"
+            android:background="@drawable/entranceicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
 
@@ -30,10 +30,9 @@
             android:onClick="MostrarMarcadoresSalidas"/>
         <Button
             android:id="@+id/asientos"
-            android:background="@drawable/fate"
+            android:background="@drawable/siticon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
@@ -42,7 +41,7 @@
             />
         <Button
             android:id="@+id/discapacitados"
-            android:background="@drawable/fate"
+            android:background="@drawable/wheelchairicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
 

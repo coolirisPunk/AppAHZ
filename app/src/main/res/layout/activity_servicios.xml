@@ -14,13 +14,11 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         >
-
         <Button
             android:id="@+id/servicios_emergencia"
-            android:background="@drawable/death"
+            android:background="@drawable/primerosicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
@@ -28,10 +26,9 @@
             android:onClick="MostrarServiciosEmergencia"/>
         <Button
             android:id="@+id/alimentos"
-            android:background="@drawable/fate"
+            android:background="@drawable/foodicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
@@ -40,10 +37,9 @@
             />
         <Button
             android:id="@+id/banos"
-            android:background="@drawable/fate"
+            android:background="@drawable/wcicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
@@ -51,10 +47,9 @@
             android:onClick="MostrarBanos"/>
         <Button
             android:id="@+id/tiendas"
-            android:background="@drawable/fate"
+            android:background="@drawable/souvenirsicons"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center"
