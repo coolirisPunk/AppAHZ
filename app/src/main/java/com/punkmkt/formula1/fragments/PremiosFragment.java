@@ -95,7 +95,7 @@ public class PremiosFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment, container, false);
+        View rootView = inflater.inflate(R.layout.fragmentpremios, container, false);
         return rootView;
     }
     private void parseJSONRespone(JSONObject response) {

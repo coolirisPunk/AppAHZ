@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:id="@+id/container_top"
         >
-    <com.android.volley.toolbox.NetworkImageView
+    <ImageView
         android:id="@+id/imagen_principal"
         android:layout_width="fill_parent"
         android:layout_height="200dp"

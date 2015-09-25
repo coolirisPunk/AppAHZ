@@ -116,7 +116,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 
             // Getting reference to the SupportMapFragment
             SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            // Getting GoogleMap object from the fragment
+            // Getting GoogleMap object from the fragmentpremios
             googleMap = fm.getMap();
             googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
             LatLng centerLatLng = AUTODROMO_HNOZ_RODRIGUEZ;
@@ -126,7 +126,6 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 
             // Enabling MyLocation Layer of Google Map
             googleMap.setMyLocationEnabled(true);
-
 
 
             //add overlay

@@ -48,7 +48,7 @@ public class ComollegarActivity extends FragmentActivity {
         else{
             // Getting reference to the SupportMapFragment
             SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            // Getting GoogleMap object from the fragment
+
             googleMap = fm.getMap();
             googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             LatLng centerLatLng = AUTODROMO_HNOZ_RODRIGUEZ;

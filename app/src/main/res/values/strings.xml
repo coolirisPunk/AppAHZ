@@ -71,4 +71,11 @@
     <string name="piloto_fecha_nacimiento">FECHA DE NACIMIENTO</string>
     <string name="piloto_lugar_nacimiento">LUGAR DE NACIMIENTO</string>
     <string name="piloto_campeonatos">CAMPEONATOS</string>
+    <string name="title_activity_ciudad_mexico">CiudadMexicoActivity</string>
+    <string name="title_activity_ciudad_mexico_detalle">CiudadMexicoDetalleActivity</string>
+    <string name="title_activity_hospedaje">HospedajeActivity</string>
+    <string name="title_activity_restaurantes">RestaurantesActivity</string>
+    <string name="title_activity_adondeir">AdondeirActivity</string>
+    <string name="title_activity_eventos">EventosActivity</string>
+    <string name="title_activity_map">MapActivity</string>
 </resources>

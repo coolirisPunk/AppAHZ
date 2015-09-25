@@ -8,19 +8,25 @@ import android.view.MenuItem;
 
 import com.punkmkt.formula1.fragments.PilotosFragment;
 import com.punkmkt.formula1.fragments.PremiosFragment;
+import com.punkmkt.formula1.models.Piloto;
+
+import java.util.ArrayList;
 
 public class PilotosActivity extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pilotos);
+
+
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container_fragment, new PilotosFragment())
                     .commit();
         }
+
+
     }
 
     @Override

@@ -69,7 +69,7 @@ public class PremiosAdapter extends RecyclerView.Adapter<PremiosAdapter.PremioVi
     @Override
     public PremiosAdapter.PremioViewHolder onCreateViewHolder(final ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.row, viewGroup, false);
+                .inflate(R.layout.row_premio, viewGroup, false);
         if (imageLoader == null)
             imageLoader = MyVolleySingleton.getInstance().getImageLoader();
 
@@ -77,7 +77,6 @@ public class PremiosAdapter extends RecyclerView.Adapter<PremiosAdapter.PremioVi
 
             public void onPotato(View caller, int i) {
                 Premio premio  = items.get(i);
-
 
 
                 Intent Idetail = new Intent (viewGroup.getContext(), ResultadosDetalleActivity.class);

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -28,28 +29,28 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     private Context context;
 
     public static class GalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        NetworkImageView imagen;
+        ImageView imagen;
         public IMyViewHolderClicks mListener;
 
         public GalleryViewHolder(View v, IMyViewHolderClicks listener) {
             super(v);
             mListener = listener;
-            imagen = (NetworkImageView) v.findViewById(R.id.netork_imageView);
+            imagen = (ImageView) v.findViewById(R.id.netork_imageView);
            // nombre = (TextView) v.findViewById(R.id.name);
             imagen.setOnClickListener(this);
             v.setOnClickListener(this);
         }
         @Override
         public void onClick(View v) {
-            if (v instanceof NetworkImageView){
-                mListener.onTomato((NetworkImageView)v, getLayoutPosition());
+            if (v instanceof ImageView){
+                mListener.onTomato((ImageView)v, getLayoutPosition());
             } else {
                 mListener.onPotato(v,getLayoutPosition());
             }
         }
         public static interface IMyViewHolderClicks {
             public void onPotato(View caller, int i);
-            public void onTomato(NetworkImageView callerImage, int i);
+            public void onTomato(ImageView callerImage, int i);
         }
 
 
@@ -77,10 +78,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
                 GalleryItem foto  = items.get(i);
                 PilotosDetalleActivity.updatePhoto(items.get(i).getImage());
             };
-            public void onTomato(NetworkImageView callerImage, int i) {
+            public void onTomato(ImageView callerImage, int i) {
                 PilotosDetalleActivity.updatePhoto(items.get(i).getImage());
-
-
             }
         });
 
@@ -90,7 +89,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public void onBindViewHolder(GalleryViewHolder viewHolder, int i) {
-        viewHolder.imagen.setImageUrl(items.get(i).getImage(), imageLoader);
+
+        //viewHolder.imagen.setImageURI(items.get(i).getImage(), imageLoader);
+        switch (items.get(i).getImage()){
+            case "foto1":
+                viewHolder.imagen.setImageResource(R.drawable.piloto_gallery);
+                break;
+            case "foto2":
+                viewHolder.imagen.setImageResource(R.drawable.noticia_photo1);
+                break;
+            default:
+                break;
+        }
         //viewHolder.nombre.setText(items.get(i).ge());
     }
 

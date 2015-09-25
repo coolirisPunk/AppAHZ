@@ -8,6 +8,15 @@ public class GalleryItem {
     private String thumbnail;
     private String image;
     private String name;
+    public GalleryItem(){
+
+    }
+    public GalleryItem(int id, String thumbnail, String image, String name){
+        this.id = id;
+        this.thumbnail = thumbnail;
+        this.image = image;
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

@@ -8,28 +8,14 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.punkmkt.formula1.MyVolleySingleton;
 import com.punkmkt.formula1.R;
 import com.punkmkt.formula1.adapters.PilotosAdapter;
-import com.punkmkt.formula1.adapters.PremiosAdapter;
 import com.punkmkt.formula1.models.Piloto;
-import com.punkmkt.formula1.models.Premio;
-import com.punkmkt.formula1.utils.AuthRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -50,35 +36,48 @@ public class PilotosFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
 
+
+
+
+
+
+        Piloto p1 = new Piloto(1, "Piloto1", "piloto_pic.jpg", "1", "Mexicana", "20-10-2015", "Chiapas", "Ninguno");
+        Piloto p2 = new Piloto(2, "Piloto2", "piloto_pic.jpg", "2", "Mexicana", "20-10-2015", "Chiapas", "Ninguno");
+
+
+
+
+        pilotos.add(p1);
+        pilotos.add(p2);
         adapter = new PilotosAdapter(pilotos);
 
-        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PILOTOS_JSON_API_URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONArray object = new JSONArray(response);
-                    for (int count = 0; count < object.length(); count++) {
-                        JSONObject anEntry = object.getJSONObject(count);
-                        Piloto piloto = new Piloto();
-                        piloto.setId(Integer.parseInt(anEntry.optString("id")));
-                        piloto.setNombre(anEntry.optString("nombre"));
-                        piloto.setFoto(anEntry.optString("foto"));
-                        pilotos.add(piloto);
-                    }
-                    adapter.notifyDataSetChanged();
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("volley", "Error during request");
-                error.printStackTrace();
-            }
-        });
-        MyVolleySingleton.getInstance().addToRequestQueue(request);
+//        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PILOTOS_JSON_API_URL, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONArray object = new JSONArray(response);
+//                    for (int count = 0; count < object.length(); count++) {
+//                        JSONObject anEntry = object.getJSONObject(count);
+//                        Piloto piloto = new Piloto();
+//                        piloto.setId(Integer.parseInt(anEntry.optString("id")));
+//                        piloto.setNombre(anEntry.optString("nombre"));
+//                        piloto.setFoto(anEntry.optString("foto"));
+//                        pilotos.add(piloto);
+//                    }
+//                    adapter.notifyDataSetChanged();
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("volley", "Error during request");
+//                error.printStackTrace();
+//            }
+//        });
+//        MyVolleySingleton.getInstance().addToRequestQueue(request);
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -93,7 +92,7 @@ public class PilotosFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment, container, false);
+        View rootView = inflater.inflate(R.layout.fragmentpremios, container, false);
         return rootView;
     }
 

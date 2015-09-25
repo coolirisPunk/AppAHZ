@@ -2,6 +2,7 @@ package com.punkmkt.formula1.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,6 +81,11 @@ public class PilotosAdapter extends RecyclerView.Adapter<PilotosAdapter.PilotoVi
                 Idetail.putExtra("id", Integer.toString(piloto.getId()));
                 Idetail.putExtra("nombre", piloto.getNombre());
                 Idetail.putExtra("image", piloto.getFoto());
+                Idetail.putExtra("numero", piloto.getNumero());
+                Idetail.putExtra("nacionalidad", piloto.getNacionalidad());
+                Idetail.putExtra("fecha_nacimiento", piloto.getFecha_nacimiento());
+                Idetail.putExtra("lugar_nacimiento", piloto.getLugar_nacimiento());
+                Idetail.putExtra("campeonatos", piloto.getCampeonatos());
                 viewGroup.getContext().startActivity(Idetail);
             };
             public void onTomato(NetworkImageView callerImage, int i) {
@@ -89,6 +95,11 @@ public class PilotosAdapter extends RecyclerView.Adapter<PilotosAdapter.PilotoVi
                 Idetail.putExtra("id", Integer.toString(piloto.getId()));
                 Idetail.putExtra("nombre", piloto.getNombre());
                 Idetail.putExtra("image", piloto.getFoto());
+                Idetail.putExtra("numero", piloto.getNumero());
+                Idetail.putExtra("nacionalidad", piloto.getNacionalidad());
+                Idetail.putExtra("fecha_nacimiento", piloto.getFecha_nacimiento());
+                Idetail.putExtra("lugar_nacimiento", piloto.getLugar_nacimiento());
+                Idetail.putExtra("campeonatos", piloto.getCampeonatos());
                 viewGroup.getContext().startActivity(Idetail);
             }
         });
@@ -99,7 +110,17 @@ public class PilotosAdapter extends RecyclerView.Adapter<PilotosAdapter.PilotoVi
 
     @Override
     public void onBindViewHolder(PilotoViewHolder viewHolder, int i) {
-        viewHolder.imagen.setImageUrl(items.get(i).getFoto(), imageLoader);
+
+        //viewHolder.imagen.setImageUrl(items.get(i).getFoto(), imageLoader);
+        switch (i){
+            case 0:
+                viewHolder.imagen.setDefaultImageResId(R.drawable.piloto_pic);
+                viewHolder.imagen.setImageUrl(items.get(i).getFoto(), imageLoader);
+            case 1:
+                viewHolder.imagen.setDefaultImageResId(R.drawable.piloto_pic);
+                viewHolder.imagen.setImageUrl(items.get(i).getFoto(), imageLoader);
+        }
+
         viewHolder.nombre.setText(items.get(i).getNombre());
     }
 

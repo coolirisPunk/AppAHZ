@@ -6,12 +6,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_horizontal_margin"
-    android:orientation="vertical"
     tools:context="com.punkmkt.formula1.AutodromoActivity">
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_top"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/container_top"
+            >
     <Button
-
         android:id="@+id/como_llegar"
-        android:background="@color/green"
+        android:background="@drawable/pistalocation"
         android:layout_width="fill_parent"
         android:layout_height="165dp"
         android:layout_gravity="center"
@@ -19,7 +29,7 @@
         />
     <Button
         android:id="@+id/ubica_tu_zona"
-        android:background="@color/white"
+        android:background="@drawable/pistasit"
         android:layout_width="fill_parent"
         android:layout_height="165dp"
         android:layout_gravity="center"
@@ -29,10 +39,12 @@
         />
     <Button
         android:id="@+id/servicios"
-        android:background="@color/background_tabs"
+        android:background="@drawable/pistaservicios"
         android:layout_width="fill_parent"
         android:layout_height="165dp"
         android:layout_gravity="center"
         android:onClick="IniciarServiciosActivity"
         />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
