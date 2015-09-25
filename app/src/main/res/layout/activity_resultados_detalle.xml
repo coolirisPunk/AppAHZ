@@ -19,7 +19,7 @@
         android:gravity="center"
         android:baselineAligned="false"
         android:id="@+id/containertitle"
-        >
+        >     
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/bandera_premio"
             android:layout_width="80dp"
