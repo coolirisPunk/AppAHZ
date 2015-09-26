@@ -48,7 +48,7 @@
             android:label="@string/title_activity_horarios" >
         </activity>
         <activity
-            android:name=".CiudadMexicoActivity"
+            android:name=".HorariosActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,7 +73,7 @@
             android:label="@string/title_activity_servicios" >
         </activity>
         <activity
-            android:name=".HorariosActivity"
+            android:name=".CiudadMexicoActivity"
             android:label="@string/title_activity_resultados" >
         </activity>
         <activity

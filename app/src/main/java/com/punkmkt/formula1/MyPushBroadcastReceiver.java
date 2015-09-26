@@ -23,21 +23,25 @@ import org.json.JSONObject;
             //To track "App Opens"
             ParseAnalytics.trackAppOpenedInBackground(intent);
 
-            //Here is data you sent
-            Log.i("com.parse.push", intent.getExtras().getString("com.parse.Data"));
             String pushTitle="";
             try {
                 Bundle extras = intent.getExtras();
                 if (extras != null) {
                     String jsonData = extras.getString("com.parse.Data");
                     String Channel = extras.getString("com.parse.Channel");
+                    Log.d("com.parse.push",jsonData);
+                    Log.d("com.parse.push",Channel);
                     //eLog.e("com.parse.push",Channel);
                     JSONObject jsonDataFinal;
                     jsonDataFinal = new JSONObject(jsonData);
                     String pushContent = jsonDataFinal.getString("alert");
+                    //String noticia = jsonDataFinal.getString("noticia");
+                    String premio = jsonDataFinal.getString("premio");
+                    String posicion = jsonDataFinal.getString("posicion");
+                    Log.d("com.parse.push", premio);
                     if (Channel!=""){
                         if("notificacion1".equals(Channel) || "notificacion2".equals(Channel) || "notificacion3".equals(Channel) || "notificacion4".equals(Channel) || "notificacion5".equals(Channel)){
-                            Log.e("com.parse.push",Channel);
+                            //Log.d("com.parse.push",Channel);
                             Intent i = new Intent(context, HorariosActivity.class);
                             i.putExtras(intent.getExtras());
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
