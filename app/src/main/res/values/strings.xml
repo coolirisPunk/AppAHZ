@@ -78,4 +78,6 @@
     <string name="title_activity_adondeir">AdondeirActivity</string>
     <string name="title_activity_eventos">EventosActivity</string>
     <string name="title_activity_map">MapActivity</string>
+
+    <string name="ranking_general">RANKING GENERAL</string>
 </resources>

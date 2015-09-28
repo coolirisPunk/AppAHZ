@@ -87,7 +87,8 @@ public class ResultadosDetalleActivity extends Activity {
                 try {
 
                     JSONObject object = new JSONObject(response);
-                    JSONArray etapa_set = object.getJSONArray("etapa_set");
+                    JSONObject object2 = object.getJSONObject("data");
+                    JSONArray etapa_set = object2.getJSONArray("etapa_set");
 
                     for (int count = 0; count < etapa_set.length(); count++) {
                         JSONObject anEntry = etapa_set.getJSONObject(count);
@@ -126,10 +127,10 @@ public class ResultadosDetalleActivity extends Activity {
                             if(anSecondEntry.has("puntos") && !anSecondEntry.optString("puntos").equals("null")){
                                 posicion.setPuntos(anSecondEntry.optString("puntos"));
                             }
-                            JSONObject anpilot = anSecondEntry.optJSONObject("piloto");
-                            posicion.setPiloto_sobrenombre(anpilot.optString("sobrenombre"));
-                            JSONObject anEscuderia = anpilot.getJSONObject("escuderia");
-                            posicion.setEscuderia(anEscuderia.optString("equipo_img"));
+                            //JSONObject anpilot = anSecondEntry.optJSONObject("piloto");
+                            posicion.setPiloto_sobrenombre(anSecondEntry.optString("sobrenombre"));
+                            //JSONObject anEscuderia = anpilot.getJSONObject("escuderia");
+                            posicion.setEscuderia(anSecondEntry.optString("equipo_img"));
                             array_posiciones.add(posicion);
                         }
                         if(etapa.getNombre().equals("P1")){
@@ -246,7 +247,7 @@ public int index_of_arraylist(String etapa){
             ((TextView)row_pos.findViewById(R.id.piloto)).setText(posicion.getPiloto_sobrenombre());
             ((NetworkImageView)row_pos.findViewById(R.id.escuderia)).setImageUrl(posicion.getEscuderia(), imageLoader);
             ((TextView)row_pos.findViewById(R.id.tiempo)).setText(posicion.getTiempo());
-            ((TextView)row_pos.findViewById(R.id.gap)).setText(posicion.getGap());
+            //((TextView)row_pos.findViewById(R.id.gap)).setText(posicion.getGap());
             ((TextView)row_pos.findViewById(R.id.laps)).setText(posicion.getLaps());
             tabla_resultados.addView(row_pos);
         }
@@ -267,7 +268,7 @@ public int index_of_arraylist(String etapa){
             ((TextView)row_pos.findViewById(R.id.textview_q1)).setText(posicion.getQ1());
             ((TextView)row_pos.findViewById(R.id.textview_q2)).setText(posicion.getQ2());
             ((TextView)row_pos.findViewById(R.id.textview_q3)).setText(posicion.getQ3());
-            ((TextView)row_pos.findViewById(R.id.textview_laps)).setText(posicion.getLaps());
+            //((TextView)row_pos.findViewById(R.id.textview_laps)).setText(posicion.getLaps());
             tabla_resultados.addView(row_pos);
         }
     }

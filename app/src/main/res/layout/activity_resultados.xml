@@ -29,6 +29,7 @@
     android:textStyle="bold"
     android:gravity="center"
     android:layout_gravity="center"
+    android:fontFamily="sans-serif-condensed"
     android:text="@string/ver_ranking_general"/>
     <ImageButton
         android:id="@+id/ranking_general_icon"

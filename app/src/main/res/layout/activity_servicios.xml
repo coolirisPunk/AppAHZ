@@ -67,7 +67,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:background="@color/grey"
+        android:background="@color/grey_background"
         android:id="@+id/container_servicio"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -99,6 +99,7 @@
                 android:gravity="center"
                 android:text="@string/descripcion_emergencia"
                 android:layout_below="@+id/titulo_servicio"
+                android:textStyle="italic"
                 />
         </ScrollView>
 

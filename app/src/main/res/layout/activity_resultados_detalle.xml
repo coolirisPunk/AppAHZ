@@ -9,11 +9,11 @@
     >
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_height="150dp"
+        android:background="@drawable/resultados_foto_superior"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:gravity="center"
@@ -34,13 +34,13 @@
             android:id="@+id/nombre_premio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:gravity="center"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-condensed"
             android:textStyle="bold"
-            android:text="@string/ver_ranking_general"/>
+            android:text=""/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"

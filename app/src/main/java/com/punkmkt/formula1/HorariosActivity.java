@@ -8,11 +8,20 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
@@ -22,6 +31,11 @@ import com.parse.ParsePushBroadcastReceiver;
 import com.parse.PushService;
 import com.parse.SaveCallback;
 import com.punkmkt.formula1.databases.NotificationModel;
+import com.punkmkt.formula1.models.DiaCarrera;
+import com.punkmkt.formula1.models.Etapa;
+import com.punkmkt.formula1.models.EtapaDiaCarrera;
+import com.punkmkt.formula1.models.Posicion;
+import com.punkmkt.formula1.utils.AuthRequest;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.runtime.FlowContentObserver;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
@@ -29,7 +43,12 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 import com.raizlabs.android.dbflow.sql.language.Update;
 import com.raizlabs.android.dbflow.sql.language.Where;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HorariosActivity extends Activity {
 
@@ -38,62 +57,59 @@ public class HorariosActivity extends Activity {
     ImageView notificacion_practica3;
     ImageView notificacion_calificacion;
     ImageView notificacion_premio;
+    TableLayout tabla_informacion;
+    private String AHZ_HORARIOS_JSON_API_URL = "http://104.236.3.158/api/horarios/5/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horarios);
-        notificacion_practica1 = (ImageView) findViewById(R.id.notificacion_practica1);
-        notificacion_practica2 = (ImageView) findViewById(R.id.notificacion_practica2);
-        notificacion_practica3 = (ImageView) findViewById(R.id.notificacion_practica3);
-        notificacion_calificacion = (ImageView) findViewById(R.id.notificacion_calificacion);
-        notificacion_premio = (ImageView) findViewById(R.id.notificacion_premio);
 
-        FlowContentObserver observer = new FlowContentObserver();
+        tabla_informacion = (TableLayout) findViewById(R.id.tabla_informacion);
 
-        // registers for callbacks from the specified table
-        observer.registerForContentChanges(getApplicationContext(), NotificationModel.class);
+        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_HORARIOS_JSON_API_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    JSONArray object2 = object.getJSONArray("data");
+                    //JSONArray etapa_set = object2.getJSONArray("etapa_dia_carrera_set");
+                    for (int count = 0; count < object2.length(); count++) {
+                        JSONObject anEntry = object2.getJSONObject(count);
+                        DiaCarrera dia = new DiaCarrera();
+                        dia.setId(Integer.parseInt(anEntry.optString("id")));
+                        dia.setNombre(anEntry.optString("nombre"));
+                        Log.d("volley", dia.getNombre());  //Etapas
+                        CreateTitleRow(dia);
+                        JSONArray etapa_dia_carrera_set = anEntry.getJSONArray("etapa_dia_carrera_set");
+                        ArrayList<EtapaDiaCarrera> etapasdiascarrera = new ArrayList<EtapaDiaCarrera>();
+                        for (int count2 = 0; count2 < etapa_dia_carrera_set.length(); count2++) {
+                            JSONObject anSecondEntry = etapa_dia_carrera_set.getJSONObject(count2);
+                            EtapaDiaCarrera etapadiacarrera  = new EtapaDiaCarrera();
+                            etapadiacarrera.setId(Integer.parseInt(anSecondEntry.optString("id")));
+                            etapadiacarrera.setNombre(anSecondEntry.optString("nombre"));
+                            etapadiacarrera.setDescripcion(anSecondEntry.optString("descripcion"));
+                            etapadiacarrera.setHora_inicio(anSecondEntry.optString("hora_inicio"));
+                            etapadiacarrera.setHora_fin(anSecondEntry.optString("hora_fin"));
+                            etapadiacarrera.setZona(anSecondEntry.optString("zona"));
+                            etapasdiascarrera.add(etapadiacarrera);
 
-        IniciarlizarNotificacion(notificacion_practica1, "notificacion1");
-        IniciarlizarNotificacion(notificacion_practica2 ,"notificacion2");
-        IniciarlizarNotificacion(notificacion_practica3 ,"notificacion3");
-        IniciarlizarNotificacion(notificacion_calificacion ,"notificacion4");
-        IniciarlizarNotificacion(notificacion_premio, "notificacion5");
+                        }
+                        CreateContentRow(etapasdiascarrera);
+                    }
 
-
-        notificacion_practica1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                CambiarEstadoNotificacion(notificacion_practica1, "notificacion1");
-
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("volley", "Error during request");
+                error.printStackTrace();
             }
         });
-        notificacion_practica2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                CambiarEstadoNotificacion(notificacion_practica2,"notificacion2");
-
-            }
-        });
-        notificacion_practica3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                CambiarEstadoNotificacion(notificacion_practica3,"notificacion3");
-
-            }
-        });
-        notificacion_calificacion.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                CambiarEstadoNotificacion(notificacion_calificacion,"notificacion4");
-
-            }
-        });
-
-        notificacion_premio.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                CambiarEstadoNotificacion(notificacion_premio,"notificacion5");
-
-            }
-        });
-
-
+        MyVolleySingleton.getInstance().addToRequestQueue(request);
 
     }
 
@@ -198,6 +214,25 @@ public class HorariosActivity extends Activity {
                     }
                 }
             });
+        }
+    }
+
+
+    public void CreateTitleRow(DiaCarrera dia){
+        TableRow row_title = (TableRow) LayoutInflater.from(HorariosActivity.this).inflate(R.layout.title_diahorario, null);
+        ((TextView)row_title.findViewById(R.id.dia)).setText(dia.getNombre());
+        tabla_informacion.addView(row_title);
+    }
+    public void CreateContentRow(ArrayList<EtapaDiaCarrera> etapasdiascarrera){
+        for(int count=0; count<etapasdiascarrera.size();count++){
+            EtapaDiaCarrera etapadiacarrera = etapasdiascarrera.get(count);
+            TableRow row_pos = (TableRow) LayoutInflater.from(HorariosActivity.this).inflate(R.layout.row_diahorario, null);
+            ((TextView)row_pos.findViewById(R.id.nombre)).setText(etapadiacarrera.getNombre());
+            ((TextView)row_pos.findViewById(R.id.contenido_descripcion)).setText(etapadiacarrera.getDescripcion());
+            ((TextView)row_pos.findViewById(R.id.contenido_hora_inicio)).setText(etapadiacarrera.getHora_inicio());
+            ((TextView)row_pos.findViewById(R.id.contenido_hora_fin)).setText(etapadiacarrera.getHora_fin());
+            ((TextView)row_pos.findViewById(R.id.contenido_zona)).setText(etapadiacarrera.getZona());
+            tabla_informacion.addView(row_pos);
         }
     }
 

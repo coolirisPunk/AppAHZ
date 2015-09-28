@@ -53,7 +53,7 @@ public class PilotosDetalleActivity extends Activity {
     TextView descripcion_numero_piloto;
     TextView descripcion_nacionalidad_piloto;
     TextView descripcion_fecha_nacimiento_piloto;
-    TextView descripcion_lugar_nacimiento_piloto;
+    //TextView descripcion_lugar_nacimiento_piloto;
     TextView descripcion_campeonatos_piloto;
 
     @Override
@@ -66,7 +66,7 @@ public class PilotosDetalleActivity extends Activity {
         descripcion_numero_piloto = (TextView) findViewById(R.id.descripcion_numero_piloto);
         descripcion_nacionalidad_piloto = (TextView) findViewById(R.id.descripcion_nacionalidad_piloto);
         descripcion_fecha_nacimiento_piloto = (TextView) findViewById(R.id.descripcion_fecha_nacimiento_piloto);
-        descripcion_lugar_nacimiento_piloto = (TextView) findViewById(R.id.descripcion_lugar_nacimiento_piloto);
+        //descripcion_lugar_nacimiento_piloto = (TextView) findViewById(R.id.descripcion_lugar_nacimiento_piloto);
         descripcion_campeonatos_piloto = (TextView) findViewById(R.id.descripcion_campeonatos_piloto);
 
 
@@ -87,12 +87,12 @@ public class PilotosDetalleActivity extends Activity {
             case 1:
                 galeria_fotos.clear();
                 galeria_fotos.add(new GalleryItem(1, "foto1", "foto1", "foto1"));
-                galeria_fotos.add(new GalleryItem(2, "foto2", "foto2", "foto2"));
+                //galeria_fotos.add(new GalleryItem(2, "foto2", "foto2", "foto2"));
                 break;
             case 2:
                 galeria_fotos.clear();
                 galeria_fotos.add(new GalleryItem(3, "foto1", "foto3", "foto1"));
-                galeria_fotos.add(new GalleryItem(4, "foto2", "foto4","foto2"));
+               // galeria_fotos.add(new GalleryItem(4, "foto2", "foto4","foto2"));
                 break;
             default:
                 break;
@@ -148,13 +148,13 @@ public class PilotosDetalleActivity extends Activity {
 //        });
        // MyVolleySingleton.getInstance().addToRequestQueue(request);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(adapter);
         //recyclerView.scrollToPosition(0);
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.item_offset);
-        recyclerView.addItemDecoration(itemDecoration);
+//        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.item_offset);
+ //       recyclerView.addItemDecoration(itemDecoration);
 
     }
 
@@ -207,7 +207,7 @@ public class PilotosDetalleActivity extends Activity {
         descripcion_numero_piloto.setText(piloto.getNumero());
         descripcion_nacionalidad_piloto.setText(piloto.getNacionalidad());
         descripcion_fecha_nacimiento_piloto.setText(piloto.getFecha_nacimiento());
-        descripcion_lugar_nacimiento_piloto.setText(piloto.getLugar_nacimiento());
+        //descripcion_lugar_nacimiento_piloto.setText(piloto.getLugar_nacimiento());
         descripcion_campeonatos_piloto.setText(piloto.getCampeonatos());
     }
     public static void updatePhoto(String url){

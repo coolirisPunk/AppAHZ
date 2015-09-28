@@ -19,7 +19,7 @@
         android:paddingBottom="10dp"
         >
 
-        <Button
+        <!--Button
             android:id="@+id/como_llegar"
             android:background="@drawable/mapaicon"
             android:layout_width="40dp"
@@ -29,7 +29,7 @@
             android:adjustViewBounds="true"
             android:gravity="center"
             android:layout_gravity="center"
-            android:onClick="MostrarMarcadorAhd"/>
+            android:onClick="MostrarMarcadorAhd"/-->
         <Button
             android:id="@+id/recoleccion"
             android:background="@drawable/ticketbus"

@@ -1,6 +1,7 @@
 package com.punkmkt.formula1;
 
 import android.app.Dialog;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,6 +66,8 @@ public class ComollegarActivity extends FragmentActivity {
 
 
             }
+
+            MostrarMarcadoresRecoleccionWitoutView();
         }
     }
 
@@ -97,9 +100,7 @@ public void RemoveMarkers(){
     public void MostrarMarcadorAhd(View v) {
         Log.i("Marcador","MostrarAhd");
         RemoveMarkers();
-        Marker AHZ = googleMap.addMarker(new MarkerOptions().position(AUTODROMO_HNOZ_RODRIGUEZ)
-                .title("Autodromo Hermanos Rodriguez"));
-        AHZ.showInfoWindow();
+        MostrarMarcadorAHZ();
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(AUTODROMO_HNOZ_RODRIGUEZ, 14);
         googleMap.moveCamera(cameraUpdate);
@@ -107,10 +108,14 @@ public void RemoveMarkers(){
     }
     public void MostrarMarcadoresRecoleccion(View v){
         RemoveMarkers();
+        MostrarMarcadoresRecoleccionWitoutView();
+
+    }
+    public void MostrarMarcadoresRecoleccionWitoutView(){
         recolecciones = new ArrayList<Coordenada>();
         recolecciones.add(new Coordenada(19.407169, -99.081305, "Recoleccion1"));
         recolecciones.add(new Coordenada(19.410875, -99.095178, "Recoleccion2"));
-
+        MostrarMarcadorAHZ();
         for(Coordenada recoleccion : recolecciones ){
             MarkerOptions options = new MarkerOptions();
             options.title(recoleccion.getTitulo());
@@ -119,14 +124,15 @@ public void RemoveMarkers(){
             options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN));
             googleMap.addMarker(options);
             //googleMap.addMarker(new MarkerOptions().position(new LatLng(estacion.getLatitud(), estacion.getLongitud())).title(estacion.getTitulo()));
-
         }
+
     }
     public void MostrarMarcadoresTaxis(View v){
         RemoveMarkers();
         taxis = new ArrayList<Coordenada>();
         taxis.add(new Coordenada(19.407169, -99.081305, "Taxi1"));
-        taxis.add(new Coordenada(19.410875, -99.095178,"Taxi2"));
+        taxis.add(new Coordenada(19.410875, -99.095178, "Taxi2"));
+        MostrarMarcadorAHZ();
         for(Coordenada taxi : taxis ){
             MarkerOptions options = new MarkerOptions();
             options.title(taxi.getTitulo());
@@ -144,7 +150,7 @@ public void RemoveMarkers(){
         estaciones_metro = new ArrayList<Coordenada>();
         estaciones_metro.add(new Coordenada(19.407169, -99.081305, "Estacion1"));
         estaciones_metro.add(new Coordenada(19.410875, -99.095178,"Estacion2"));
-
+        MostrarMarcadorAHZ();
         for(Coordenada estacion : estaciones_metro ){
             MarkerOptions options = new MarkerOptions();
             options.title(estacion.getTitulo());
@@ -155,6 +161,11 @@ public void RemoveMarkers(){
             //googleMap.addMarker(new MarkerOptions().position(new LatLng(estacion.getLatitud(), estacion.getLongitud())).title(estacion.getTitulo()));
 
         }
+    }
+    public void MostrarMarcadorAHZ(){
+        Marker AHZ = googleMap.addMarker(new MarkerOptions().position(AUTODROMO_HNOZ_RODRIGUEZ)
+                .title("Autodromo Hermanos Rodriguez"));
+        AHZ.showInfoWindow();
     }
 
 }
