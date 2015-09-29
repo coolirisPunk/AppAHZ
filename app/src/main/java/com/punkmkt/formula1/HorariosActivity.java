@@ -67,7 +67,7 @@ public class HorariosActivity extends Activity {
 
         tabla_informacion = (TableLayout) findViewById(R.id.tabla_informacion);
 
-        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_HORARIOS_JSON_API_URL, new Response.Listener<String>() {
+        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_HORARIOS_JSON_API_URL,"UTF-8", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -88,7 +88,7 @@ public class HorariosActivity extends Activity {
                             EtapaDiaCarrera etapadiacarrera  = new EtapaDiaCarrera();
                             etapadiacarrera.setId(Integer.parseInt(anSecondEntry.optString("id")));
                             etapadiacarrera.setNombre(anSecondEntry.optString("nombre"));
-                            etapadiacarrera.setDescripcion(anSecondEntry.optString("descripcion"));
+                            //etapadiacarrera.setDescripcion(anSecondEntry.optString("descripcion"));
                             etapadiacarrera.setHora_inicio(anSecondEntry.optString("hora_inicio"));
                             etapadiacarrera.setHora_fin(anSecondEntry.optString("hora_fin"));
                             etapadiacarrera.setZona(anSecondEntry.optString("zona"));
@@ -228,7 +228,7 @@ public class HorariosActivity extends Activity {
             EtapaDiaCarrera etapadiacarrera = etapasdiascarrera.get(count);
             TableRow row_pos = (TableRow) LayoutInflater.from(HorariosActivity.this).inflate(R.layout.row_diahorario, null);
             ((TextView)row_pos.findViewById(R.id.nombre)).setText(etapadiacarrera.getNombre());
-            ((TextView)row_pos.findViewById(R.id.contenido_descripcion)).setText(etapadiacarrera.getDescripcion());
+            //((TextView)row_pos.findViewById(R.id.contenido_descripcion)).setText(etapadiacarrera.getDescripcion());
             ((TextView)row_pos.findViewById(R.id.contenido_hora_inicio)).setText(etapadiacarrera.getHora_inicio());
             ((TextView)row_pos.findViewById(R.id.contenido_hora_fin)).setText(etapadiacarrera.getHora_fin());
             ((TextView)row_pos.findViewById(R.id.contenido_zona)).setText(etapadiacarrera.getZona());

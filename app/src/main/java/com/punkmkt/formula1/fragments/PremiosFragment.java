@@ -53,7 +53,7 @@ public class PremiosFragment extends Fragment {
 
         adapter = new PremiosAdapter(premios);
 
-        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PREMIOS_JSON_API_URL, new Response.Listener<String>() {
+        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_PREMIOS_JSON_API_URL,"UTF-8", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

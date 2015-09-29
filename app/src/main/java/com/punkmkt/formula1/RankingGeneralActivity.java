@@ -40,7 +40,7 @@ public class RankingGeneralActivity extends Activity {
         setContentView(R.layout.activity_ranking_general);
         tabla_resultados = (TableLayout) findViewById(R.id.tabla_resultados);
 
-        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_RANKING_GENERAL, new Response.Listener<String>() {
+        StringRequest request = new AuthRequest(Request.Method.GET, AHZ_RANKING_GENERAL,"UTF-8", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

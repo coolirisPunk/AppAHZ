@@ -10,6 +10,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
+import com.punkmkt.formula1.models.CustomUser;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
 /**
@@ -38,6 +40,7 @@ public class MyVolleySingleton extends Application {
         Parse.initialize(this,
                 getResources().getString(R.string.parse_application_id),
                 getResources().getString(R.string.parse_client_key));
+        ParseObject.registerSubclass(CustomUser.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 
