@@ -55,6 +55,36 @@
         android:inputType="textEmailAddress"
         android:maxLines="1"
         android:singleLine="true" />
+    <TextView
+        android:id="@+id/name"
+        android:visibility="gone"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/facebook_id"
+        android:visibility="gone"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/locale"
+        android:visibility="gone"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/link"
+        android:visibility="gone"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/age_range"
+        android:visibility="gone"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/action_button"
         android:layout_width="wrap_content"

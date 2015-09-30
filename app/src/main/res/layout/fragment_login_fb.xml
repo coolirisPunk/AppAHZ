@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.mywoding.wodingapp.LoginFBFragment">
+    android:layout_height="match_parent" tools:context="com.punkmkt.formula1.fragments.LoginFBFragment">
 
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:text=""
             android:id="@+id/DetailText" />
     </LinearLayout>
 

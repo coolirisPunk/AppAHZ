@@ -105,7 +105,8 @@
     <string name="error_blank_first_name">enter a first name</string>
     <string name="error_blank_last_name">enter a last name</string>
     <string name="error_blank_zona">Ingresa una zona</string>
-    <string name="error_blank_asiento">Ingresa una zona</string>
+    <string name="error_blank_asiento">Ingresa un asiento</string>
+    <string name="error_blank_genero">Ingresa un genero</string>
     <string name="error_blank_password">enter a password</string>
     <string name="error_mismatched_passwords">enter the same password twice</string>
     <string name="error_join">", and "</string>
