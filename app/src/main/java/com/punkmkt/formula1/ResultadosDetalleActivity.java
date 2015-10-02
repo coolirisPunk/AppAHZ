@@ -140,7 +140,7 @@ public class ResultadosDetalleActivity extends Activity {
                             posiciones_p2 = array_posiciones;
                         }
                         else if(etapa.getNombre().equals("P3")){
-                            posiciones_p2 = array_posiciones;
+                            posiciones_p3 = array_posiciones;
                         }
                         else if(etapa.getNombre().equals("Q")){
                             posiciones_clasificatoria = array_posiciones;

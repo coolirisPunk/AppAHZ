@@ -47,9 +47,11 @@ import org.json.JSONObject;
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(i);
                         }
-                        else{
+                        else if("notificaciones".equals(Channel)){
+                            String noticia = jsonDataFinal.getString("noticia");
                             Intent i = new Intent(context, MainActivity.class);
                             i.putExtras(intent.getExtras());
+                            i.putExtra("id", noticia);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(i);
                         }
