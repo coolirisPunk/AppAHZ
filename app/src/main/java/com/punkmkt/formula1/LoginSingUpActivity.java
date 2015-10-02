@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,8 +28,11 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
@@ -38,6 +42,7 @@ import com.punkmkt.formula1.fragments.LoginFBFragment;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class LoginSingUpActivity extends FragmentActivity {
@@ -158,43 +163,49 @@ public class LoginSingUpActivity extends FragmentActivity {
                 dlg.setMessage("Signing up.  Please wait.");
                 dlg.show();
 
-
-                customUser = new ParseObject("CustomUser");
-
-                //customUser.put("foo", "bar");
-                customUser.put("first_name", first_nameView.getText().toString());
-                customUser.put("last_name", last_nameView.getText().toString());
-                customUser.put("email",emailView.getText().toString());
-                customUser.put("gender", genero.getSelectedItem().toString());
-                customUser.put("name",name.getText().toString());
-                customUser.put("facebook_id",facebook_id.getText().toString());
-                customUser.put("locale",locale.getText().toString());
-                customUser.put("link",link.getText().toString());
-                customUser.put("age_range",age_range.getText().toString());
-                customUser.put("zona",zonaView.getText().toString());
-                customUser.put("asiento", asientoView.getText().toString());
-
-                // Call the Parse signup method
-                customUser.saveInBackground(new SaveCallback() {
-
-                    @Override
-                    public void done(ParseException e) {
-                        dlg.dismiss();
-                        if (e != null) {
-
-                            // Show the error message
-                            Toast.makeText(LoginSingUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-                            Log.d("parse",customUser.getObjectId().toString());
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("CustomUser");
+                query.whereEqualTo("email", emailView.getText().toString());
+                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
+                        if (object == null) {
+                            customUser = new ParseObject("CustomUser");
+                            customUser.put("first_name", first_nameView.getText().toString());
+                            customUser.put("last_name", last_nameView.getText().toString());
+                            customUser.put("email", emailView.getText().toString());
+                            customUser.put("gender", genero.getSelectedItem().toString());
+                            customUser.put("name", name.getText().toString());
+                            customUser.put("facebook_id",facebook_id.getText().toString());
+                            customUser.put("locale",locale.getText().toString());
+                            customUser.put("link",link.getText().toString());
+                            customUser.put("age_range",age_range.getText().toString());
+                            customUser.put("zona",zonaView.getText().toString());
+                            customUser.put("asiento", asientoView.getText().toString());
+                            // Call the Parse signup method
+                            customUser.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    dlg.dismiss();
+                                    if (e != null) {
+                                        // Show the error message
+                                        Toast.makeText(LoginSingUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Log.d("parse",customUser.getObjectId().toString());
+                                        // Start an intent for the dispatch activity
+                                        //Intent intent = new Intent(LoginSingUpActivity.this, MainActivity.class);
+                                        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        //startActivity(intent);
+                                    }
+                                }
+                            });
                         } else {
-                            Log.d("parse",customUser.getObjectId().toString());
-                            // Start an intent for the dispatch activity
-                            Intent intent = new Intent(LoginSingUpActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
+                            dlg.dismiss();
+                            Toast.makeText(LoginSingUpActivity.this,R.string.usuario_existente, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+
+
+
 
 
             }
