@@ -135,4 +135,10 @@
         <item>Gris</item>
         <item>Café</item>
     </string-array>
+
+    <string name="activa_gps">CON ESTA FUNCIÓN PODRÁS ENCONTRAR LAS MEJORES OPCIONES DE TRANSPORTE HACIA EL AUTÓDROMO</string>
+    <string name="activa_notificaciones">CON ESTA FUNCIÓN RECIBIRÁS INFORMACIÓN EN TIEMPO REAL DEL EVENTO Y SUS RESULTADOS</string>
+    <string name="activa_gps_ahora">ACTIVAR LOCALIZACIÓN</string>
+    <string name="activa_notificaciones_ahora">ACTIVAR NOTIFICACIONES</string>
+    <string name="siguiente">SIGUIENTE</string>
 </resources>

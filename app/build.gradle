@@ -52,4 +52,5 @@ dependencies {
         // exclusion is not necessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }
+
 }
