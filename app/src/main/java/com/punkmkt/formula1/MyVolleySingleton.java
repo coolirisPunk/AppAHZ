@@ -19,7 +19,9 @@ import com.raizlabs.android.dbflow.config.FlowManager;
  */
 
         import android.app.Application;
-        import android.text.TextUtils;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.widget.Toast;
 
 
 public class MyVolleySingleton extends Application {
@@ -42,6 +44,21 @@ public class MyVolleySingleton extends Application {
                 getResources().getString(R.string.parse_client_key));
         ParseObject.registerSubclass(CustomUser.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            //show start activity
+
+            Intent myIntent = new Intent(MyVolleySingleton.this, ConfiguracionActivity.class);
+            myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            MyVolleySingleton.this.startActivity(myIntent);
+        }
+
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
     }
 
     public static synchronized MyVolleySingleton getInstance() {

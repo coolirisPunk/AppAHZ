@@ -6,7 +6,40 @@
     android:layout_height="match_parent"
     android:id="@+id/main_container_linearlayout"
     android:background="@color/white">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/background_tabs"
+        android:id="@+id/container_menu"
+        android:gravity="center"
+        android:baselineAligned="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+        <ImageView
+            android:id="@+id/numero1"
+            android:background="@drawable/boton_1_64_r"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
 
+            />
+        <ImageView
+            android:id="@+id/numero2"
+            android:background="@drawable/boton_2_64"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:onClick="NextViewPager"
+            />
+    </LinearLayout>
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="249dp"
