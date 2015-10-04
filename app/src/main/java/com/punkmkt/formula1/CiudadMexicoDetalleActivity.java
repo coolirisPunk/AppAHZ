@@ -124,4 +124,14 @@ public class CiudadMexicoDetalleActivity extends Activity {
         ft.addToBackStack(null);
         ft.commit();
     }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(CiudadMexicoDetalleActivity.this, CiudadMexicoActivity.class));
+        finish();
+
+    }
 }

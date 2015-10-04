@@ -60,4 +60,6 @@ public class CiudadMexicoActivity extends Activity {
         myIntent.putExtra("fragment","eventos");
         CiudadMexicoActivity.this.startActivity(myIntent);
     }
+
+
 }
