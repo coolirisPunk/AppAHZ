@@ -49,7 +49,6 @@ public class MyVolleySingleton extends Application {
                 .getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
-            //show start activity
 
             Intent myIntent = new Intent(MyVolleySingleton.this, ConfiguracionActivity.class);
             myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
