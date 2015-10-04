@@ -7,6 +7,7 @@
             <item name="android:colorPrimaryDark">@color/primary_dark</item>
             <!--   theme UI controls like checkboxes and text fields -->
             <item name="android:colorAccent">@color/accent</item>
+            <item name="android:textColorHint">@color/black</item>
         </style>
 
         <color name="primary_dark">#056f00</color>

@@ -109,9 +109,9 @@ public class LoginSingUpActivity extends FragmentActivity {
         genero = (Spinner) findViewById(R.id.spinner_gender);
         edad = (Spinner) findViewById(R.id.spinner_edad);
 
-        first_nameView.setHintTextColor(getResources().getColor(R.color.white));
-        last_nameView.setHintTextColor(getResources().getColor(R.color.white));
-        emailView.setHintTextColor(getResources().getColor(R.color.white));
+        first_nameView.setHintTextColor(getResources().getColor(R.color.black));
+        last_nameView.setHintTextColor(getResources().getColor(R.color.black));
+        emailView.setHintTextColor(getResources().getColor(R.color.black));
 
         final String[] data_array_genero = getResources().getStringArray(R.array.gender_arrays);
         final String[] data_array_zonas = getResources().getStringArray(R.array.zonas_arrays);
@@ -249,8 +249,8 @@ public class LoginSingUpActivity extends FragmentActivity {
                             customUser.put("facebook_id",facebook_id.getText().toString());
                             customUser.put("locale",locale.getText().toString());
                             customUser.put("link",link.getText().toString());
-                            customUser.put("age_range",edad.getSelectedItem().toString());
-                            customUser.put("zona", zonaView.getSelectedItem().toString());
+                            customUser.put("age",edad.getSelectedItem().toString());
+                            customUser.put("grada", zonaView.getSelectedItem().toString());
                             customUser.put("asiento", asientoView.getSelectedItem().toString());
                             // Call the Parse signup method
                             customUser.saveInBackground(new SaveCallback() {
@@ -262,12 +262,10 @@ public class LoginSingUpActivity extends FragmentActivity {
                                         //Toast.makeText(LoginSingUpActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                                         Crouton.makeText(LoginSingUpActivity.this, e.getMessage(), Style.ALERT).show();
                                     } else {
-                                        Crouton.makeText(LoginSingUpActivity.this, R.string.gracias_por_registrarte, Style.INFO).show();
-                                        //Toast.makeText(LoginSingUpActivity.this, R.string.gracias_por_registrarte, Toast.LENGTH_LONG).show();
-                                        // Start an intent for the dispatch activity
-                                        //Intent intent = new Intent(LoginSingUpActivity.this, MainActivity.class);
-                                        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        //startActivity(intent);
+
+                                        //Crouton.makeText(LoginSingUpActivity.this, R.string.gracias_por_registrarte, Style.INFO).show();
+                                        Intent myIntent = new Intent(LoginSingUpActivity.this, GraciasParticiparActivity.class);
+                                        LoginSingUpActivity.this.startActivity(myIntent);
                                     }
                                 }
                             });

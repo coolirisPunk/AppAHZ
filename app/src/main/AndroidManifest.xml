@@ -53,7 +53,7 @@
             android:label="@string/title_activity_horarios" >
         </activity>
         <activity
-            android:name=".CiudadMexicoActivity"
+            android:name=".LoginSingUpActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +62,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginSingUpActivity"
+            android:name=".CiudadMexicoActivity"
             android:label="@string/title_activity_comollegar" >
         </activity>
         <activity
@@ -179,6 +179,10 @@
         <activity
             android:name=".TerminosServicioActivity"
             android:label="@string/title_activity_terminos_servicio" >
+        </activity>
+        <activity
+            android:name=".GraciasParticiparActivity"
+            android:label="@string/title_activity_gracias_participar" >
         </activity>
     </application>
 

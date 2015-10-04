@@ -6,6 +6,7 @@
             <item name="android:actionBarStyle">@style/MyActionBar</item>
             <!-- Support library compatibility -->
             <item name="actionBarStyle">@style/MyActionBar</item>
+            <item name="android:textColorHint">@color/black</item>
         </style>
 
         <!-- ActionBar styles -->

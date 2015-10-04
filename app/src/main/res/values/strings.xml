@@ -110,7 +110,7 @@
 
     <string name="selecciona_genero">Género</string>
     <string name="selecciona_edad">Edad</string>
-    <string name="selecciona_zona">Zona</string>
+    <string name="selecciona_zona">Grada</string>
     <string name="selecciona_asientos">Asiento</string>
 
     <string name="campos_obligatorios">Todos los campos son obligatorios</string>
@@ -241,4 +241,9 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </string>
+    <string name="title_activity_gracias_participar">GraciasParticiparActivity</string>
+    <string name="gracias_participar">GRACIAS POR PARTICIPAR</string>
+    <string name="datos_registrados">TUS DATOS YA ESTÁN REGISTRDOS</string>
+    <string name="caso_seleccionado">EN CASO DE SER SELECCIONADO</string>
+    <string name="caso_seleccionado2">TE CONTÁCTAREMOS POR CUALQUIERA \n DE LOS MEDIOS QUE NOS PROPORCIONASTE.</string>
 </resources>

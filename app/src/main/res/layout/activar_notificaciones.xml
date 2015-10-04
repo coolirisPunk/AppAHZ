@@ -81,7 +81,7 @@
                 android:id="@+id/turnNotification"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:text="@string/activa_gps_ahora"
+                android:text="@string/activa_notificaciones_ahora"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textOn="ON"
