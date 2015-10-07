@@ -129,10 +129,7 @@ public class HospedajeAdapter extends RecyclerView.Adapter<HospedajeAdapter.Hosp
             default:
             break;
         }
-
     }
-
-
 
 
 }

@@ -115,6 +115,10 @@ public class LoginSingUpActivity extends FragmentActivity {
 
         final String[] data_array_genero = getResources().getStringArray(R.array.gender_arrays);
         final String[] data_array_zonas = getResources().getStringArray(R.array.zonas_arrays);
+
+        final String[] data_array_asientos = getResources().getStringArray(R.array.asientos_arrays);
+
+
         final ArrayList<String> data_genero = new ArrayList<String>();
         final ArrayList<String> data_edad = new ArrayList<String>();
         final ArrayList<String> data_zonas = new ArrayList<String>();
@@ -130,8 +134,8 @@ public class LoginSingUpActivity extends FragmentActivity {
             data_edad.add(Integer.toString(i));
         }
 
-        for (int i = 1; i<=99;i++){
-            data_asientos.add(Integer.toString(i));
+        for (String valor: data_array_asientos){
+            data_asientos.add(valor);
         }
 
         data_genero.add(0,getResources().getString(R.string.selecciona_genero)); //Add element at 0th index
@@ -250,8 +254,8 @@ public class LoginSingUpActivity extends FragmentActivity {
                             customUser.put("locale",locale.getText().toString());
                             customUser.put("link",link.getText().toString());
                             customUser.put("age",edad.getSelectedItem().toString());
-                            customUser.put("grada", zonaView.getSelectedItem().toString());
-                            customUser.put("asiento", asientoView.getSelectedItem().toString());
+                            customUser.put("zona", zonaView.getSelectedItem().toString());
+                            customUser.put("grada", asientoView.getSelectedItem().toString());
                             // Call the Parse signup method
                             customUser.saveInBackground(new SaveCallback() {
                                 @Override

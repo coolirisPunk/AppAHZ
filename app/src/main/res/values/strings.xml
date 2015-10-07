@@ -14,7 +14,6 @@
     <string name="title_activity_ubica_zona">UbicaZonaActivity</string>
     <string name="localiza_tu_zona">LOCALIZA TU ZONA</string>
 
-
     <string-array name="zonas_autodromo">
         <item>GRANDSTANDS: 1, 1-A, 2</item>
         <item>GRADAS PLATINO: 5, 9, 10, 11</item>
@@ -110,8 +109,8 @@
 
     <string name="selecciona_genero">Género</string>
     <string name="selecciona_edad">Edad</string>
-    <string name="selecciona_zona">Grada</string>
-    <string name="selecciona_asientos">Asiento</string>
+    <string name="selecciona_zona">Zona</string>
+    <string name="selecciona_asientos">Grada</string>
 
     <string name="campos_obligatorios">Todos los campos son obligatorios</string>
     <string name="porfavor_espere">Por favor espere.</string>
@@ -129,13 +128,33 @@
     <string-array name="zonas_arrays">
         <item>Verde</item>
         <item>Azul</item>
-        <item>Morado</item>
-        <item>Amarillo</item>
+        <item>Morada</item>
+        <item>Amarilla</item>
         <item>Naranja</item>
         <item>Gris</item>
         <item>Café</item>
     </string-array>
-
+    <string-array name="asientos_arrays">
+        <item>GRANDSTANDS - GRADA 1</item>
+        <item>GRANDSTANDS - GRADA 2</item>
+        <item>GRADAS PLATINO - GRADA 5</item>
+        <item>GRADAS PLATINO - GRADA 9</item>
+        <item>GRADAS PLATINO - GRADA 10</item>
+        <item>GRADAS PLATINO - GRADA 11</item>
+        <item>GRADAS ORO - GRADA 3</item>
+        <item>GRADAS ORO - GRADA 4</item>
+        <item>GRADAS ORO - GRADA 6</item>
+        <item>GRADAS ORO - GRADA 7</item>
+        <item>GRADAS ORO - GRADA 8</item>
+        <item>GRADAS ORO - GRADA 12</item>
+        <item>FORO SOL SUR - GRADA 14</item>
+        <item>FORO SOL NORTE - GRADA 15</item>
+        <item>ADMISIÓN GENERAL - GRADA 13</item>
+        <item>ADMISIÓN GENERAL - GRADA 2A</item>
+        <item>ADMISIÓN GENERAL - GRADA 2B</item>
+        <item>ADMISIÓN GENERAL - GRADA 6A</item>
+        <item>GRADA PLATA - GRADA 6B</item>
+    </string-array>
     <string name="activa_gps">CON ESTA FUNCIÓN PODRÁS ENCONTRAR LAS MEJORES OPCIONES DE TRANSPORTE HACIA EL AUTÓDROMO</string>
     <string name="activa_notificaciones">CON ESTA FUNCIÓN RECIBIRÁS INFORMACIÓN EN TIEMPO REAL DEL EVENTO Y SUS RESULTADOS</string>
     <string name="activa_gps_ahora">ACTIVAR LOCALIZACIÓN</string>
